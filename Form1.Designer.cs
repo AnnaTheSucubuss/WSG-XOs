@@ -41,6 +41,7 @@
             this.MasterBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,11 +172,22 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Start Game first";
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(200, 238);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(81, 43);
+            this.button10.TabIndex = 12;
+            this.button10.Text = "Start Game";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 293);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MasterBtn);
@@ -214,6 +226,7 @@
         private System.Windows.Forms.Button MasterBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button10;
     }
 }
 

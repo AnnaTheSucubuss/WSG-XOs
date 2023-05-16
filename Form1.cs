@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -320,6 +321,23 @@ namespace XO
             Controls.OfType<Button>().ToList().ForEach(button => { button.Text = ""; });
             MasterBtn.Text = "Restart";
             IsGameOn= false;
+        }
+
+        void PCturn()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int a = 0; a < 3; a++)
+                {
+                    Debug.Write(XOs[i,a].ToString());
+                }
+                Debug.Write(Environment.NewLine + Environment.NewLine); 
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            PCturn();
         }
     }
 }
