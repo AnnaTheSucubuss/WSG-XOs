@@ -16,6 +16,7 @@ namespace XO
         bool IsGameOn = false;
         int[,] XOs = new int[3,3];
         bool turaX = false;
+        bool SI = false;
 
 
         public Form1()
@@ -32,122 +33,189 @@ namespace XO
         {
             if (IsGameOn)
             {
-
-
-                Button btn = (Button)sender;
-                if (turaX)
-                {
-                    if (btn.Text == "")
-                    {
-                        switch (btn.TabIndex)
+                if (SI)
+                { //Komputer kontra Gracz
+                        Button btn = (Button)sender;
+                        if (btn.Text == "")
                         {
-                            case 0:
-                                XOs[0, 0] = 1;
-                                Refresh();
-                                break;
+                            switch (btn.TabIndex)
+                            {
+                                case 0:
+                                    XOs[0, 0] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
 
-                            case 1:
-                                XOs[0, 1] = 1;
-                                Refresh();
-                                break;
+                                case 1:
+                                    XOs[0, 1] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
 
-                            case 2:
-                                XOs[0, 2] = 1;
-                                Refresh();
-                                break;
-                            ///////////
-                            case 3:
-                                XOs[1, 0] = 1;
-                                Refresh();
-                                break;
+                                case 2:
+                                    XOs[0, 2] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
+                                ///////////
+                                case 3:
+                                    XOs[1, 0] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
 
-                            case 4:
-                                XOs[1, 1] = 1;
-                                Refresh();
-                                break;
+                                case 4:
+                                    XOs[1, 1] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
 
-                            case 5:
-                                XOs[1, 2] = 1;
-                                Refresh();
-                                break;
-                            /////////////
-                            case 6:
-                                XOs[2, 0] = 1;
-                                Refresh();
-                                break;
+                                case 5:
+                                    XOs[1, 2] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
+                                /////////////
+                                case 6:
+                                    XOs[2, 0] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
 
-                            case 7:
-                                XOs[2, 1] = 1;
-                                Refresh();
-                                break;
+                                case 7:
+                                    XOs[2, 1] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
 
-                            case 8:
-                                XOs[2, 2] = 1;
-                                Refresh();
-                                break;
-                            default:
-                                break;
+                                case 8:
+                                    XOs[2, 2] = 2;
+                                    Refresh();
+                                    PCturn();
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
-
                     }
-                }
                 else
-                {
-                    if (btn.Text == "")
+                { //Gracz kontra Gracz
+
+                    Button btn = (Button)sender;
+                    if (turaX)
                     {
-                        switch (btn.TabIndex)
+                        if (btn.Text == "")
                         {
-                            case 0:
-                                XOs[0, 0] = 2;
-                                Refresh();
-                                break;
+                            switch (btn.TabIndex)
+                            {
+                                case 0:
+                                    XOs[0, 0] = 1;
+                                    Refresh();
+                                    break;
 
-                            case 1:
-                                XOs[0, 1] = 2;
-                                Refresh();
-                                break;
+                                case 1:
+                                    XOs[0, 1] = 1;
+                                    Refresh();
+                                    break;
 
-                            case 2:
-                                XOs[0, 2] = 2;
-                                Refresh();
-                                break;
-                            ///////////
-                            case 3:
-                                XOs[1, 0] = 2;
-                                Refresh();
-                                break;
+                                case 2:
+                                    XOs[0, 2] = 1;
+                                    Refresh();
+                                    break;
+                                ///////////
+                                case 3:
+                                    XOs[1, 0] = 1;
+                                    Refresh();
+                                    break;
 
-                            case 4:
-                                XOs[1, 1] = 2;
-                                Refresh();
-                                break;
+                                case 4:
+                                    XOs[1, 1] = 1;
+                                    Refresh();
+                                    break;
 
-                            case 5:
-                                XOs[1, 2] = 2;
-                                Refresh();
-                                break;
-                            /////////////
-                            case 6:
-                                XOs[2, 0] = 2;
-                                Refresh();
-                                break;
+                                case 5:
+                                    XOs[1, 2] = 1;
+                                    Refresh();
+                                    break;
+                                /////////////
+                                case 6:
+                                    XOs[2, 0] = 1;
+                                    Refresh();
+                                    break;
 
-                            case 7:
-                                XOs[2, 1] = 2;
-                                Refresh();
-                                break;
+                                case 7:
+                                    XOs[2, 1] = 1;
+                                    Refresh();
+                                    break;
 
-                            case 8:
-                                XOs[2, 2] = 2;
-                                Refresh();
-                                break;
-                            default:
-                                break;
+                                case 8:
+                                    XOs[2, 2] = 1;
+                                    Refresh();
+                                    break;
+                                default:
+                                    break;
+                            }
+
                         }
-
                     }
+                    else
+                    {
+                        if (btn.Text == "")
+                        {
+                            switch (btn.TabIndex)
+                            {
+                                case 0:
+                                    XOs[0, 0] = 2;
+                                    Refresh();
+                                    break;
+
+                                case 1:
+                                    XOs[0, 1] = 2;
+                                    Refresh();
+                                    break;
+
+                                case 2:
+                                    XOs[0, 2] = 2;
+                                    Refresh();
+                                    break;
+                                ///////////
+                                case 3:
+                                    XOs[1, 0] = 2;
+                                    Refresh();
+                                    break;
+
+                                case 4:
+                                    XOs[1, 1] = 2;
+                                    Refresh();
+                                    break;
+
+                                case 5:
+                                    XOs[1, 2] = 2;
+                                    Refresh();
+                                    break;
+                                /////////////
+                                case 6:
+                                    XOs[2, 0] = 2;
+                                    Refresh();
+                                    break;
+
+                                case 7:
+                                    XOs[2, 1] = 2;
+                                    Refresh();
+                                    break;
+
+                                case 8:
+                                    XOs[2, 2] = 2;
+                                    Refresh();
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                        }
+                    }
+                    ///////////////////
                 }
-                ///////////////////
             }
         }
     
@@ -327,9 +395,28 @@ namespace XO
         {
             for (int i = 0; i < 3; i++)
             {
-                for (int a = 0; a < 3; a++)
+                for (int a = 0; a < 2; a++)
                 {
-                    Debug.Write(XOs[i,a].ToString());
+                    //Debug.Write(XOs[i,a].ToString());
+
+                    if (XOs[0,0] == 2 && XOs[1,1] == 2 && XOs[2,2] != 2)
+                    {
+                        XOs[2, 2] = 1;
+                        Refresh();
+                    }
+
+
+                    if (XOs[i,0] == 2 && XOs[i,1] == 2 && XOs[i,2] != 2)
+                    {
+                        XOs[i, 2] = 1;
+                        Refresh();
+                    }
+
+                    if (XOs[0,i] == 2 && XOs[1,i] == 2)
+                    {
+                        XOs[2, i] = 1;
+                        Refresh();
+                    }
                 }
                 Debug.Write(Environment.NewLine + Environment.NewLine); 
             }
@@ -337,7 +424,7 @@ namespace XO
 
         private void button10_Click(object sender, EventArgs e)
         {
-            PCturn();
+            if (!IsGameOn){ SI = true; } else { PCturn(); }
         }
     }
 }
