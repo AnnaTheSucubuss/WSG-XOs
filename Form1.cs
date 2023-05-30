@@ -393,32 +393,68 @@ namespace XO
 
         void PCturn()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++) // ------
             {
-                for (int a = 0; a < 2; a++)
+                int[] temp = 
+                    {
+                    XOs[i,0],
+                    XOs[i,1],
+                    XOs[i,2]
+                    };
+
+                if (temp.Contains(3) && temp.Contains(2)) 
                 {
-                    //Debug.Write(XOs[i,a].ToString());
-
-                    if (XOs[0,0] == 2 && XOs[1,1] == 2 && XOs[2,2] != 2)
+                    //Theres an empty space and a player move
+                    if (XOs[i,0] == 2) // C ? ?
                     {
-                        XOs[2, 2] = 1;
-                        Refresh();
-                    }
+                        if (XOs[i,1] == 2 && XOs[i,2] != 2) // 2 C C
+                        {
+                            XOs[i, 2] = 1;
+                            Refresh();
+                        }
 
-
-                    if (XOs[i,0] == 2 && XOs[i,1] == 2 && XOs[i,2] != 2)
-                    {
-                        XOs[i, 2] = 1;
-                        Refresh();
-                    }
-
-                    if (XOs[0,i] == 2 && XOs[1,i] == 2)
-                    {
-                        XOs[2, i] = 1;
-                        Refresh();
+                        if (XOs[i,2] == 2 && XOs[i,1] != 2) // 2 ? C
+                        {
+                            XOs[i, 1] = 1;
+                            Refresh();
+                        }
                     }
                 }
-                Debug.Write(Environment.NewLine + Environment.NewLine); 
+                Debug.Write(Environment.NewLine + Environment.NewLine);
+
+                temp = new int[] 
+                {
+                    XOs[0,i],
+                    XOs[1,i],
+                    XOs[2,i]
+                }; // |
+
+                if (temp.Contains(3) && temp.Contains(2))
+                {
+                    //C
+                    //?
+                    //?
+                    if (XOs[0,i] == 2) 
+                    {
+                        //2
+                        //C
+                        //C
+                        if (XOs[1,i] == 2 && XOs[2,i] != 2) 
+                        {
+                            XOs[2, i] = 1;
+                            Refresh();
+                        }
+
+                        //2
+                        //c
+                        //c
+                        if (XOs[2,i] == 2 && XOs[1,i] != 2)
+                        {
+                            XOs[1, i] = 1;
+                            Refresh();
+                        }
+                    }
+                }
             }
         }
 
